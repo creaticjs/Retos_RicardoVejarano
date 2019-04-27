@@ -1,0 +1,145 @@
+body{
+  /*transition: background 5s ease-in;*/
+  background: -moz-linear-gradient(-45deg, #360033 0%, #0b8793 100%);
+  background: -webkit-linear-gradient(-45deg, #360033 0%,#0b8793 100%);
+  background: linear-gradient(135deg, #360033 0%,#0b8793 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#80ffe53b', endColorstr='#80ff2525',GradientType=1 );
+  width:100%;
+  height:100vh;
+  overflow: hidden;
+  font-family: Arial;
+}
+
+.container{
+  padding:40px;
+}
+
+.container .card-calculator{
+  width:100%;
+  margin: auto;
+  display: block;
+  max-width:340px;
+  background: #355691;
+  border-radius:10px;
+  overflow: hidden;
+  -webkit-box-shadow: 0px 0px 40px -2px rgba(0,0,0,0.2);
+  -moz-box-shadow: 0px 0px 40px -2px rgba(0,0,0,0.2);
+  box-shadow: 0px 0px 40px -2px rgba(0,0,0,0.2);
+  font-size:16px;
+}
+
+.container .card-calculator2{
+  width:100%;
+  margin: auto;
+  display: block;
+  margin-top: 10px;
+  max-width:340px;
+  background: #A4A4A4;
+  border-radius:10px;
+  overflow: hidden;
+  -webkit-box-shadow: 0px 0px 40px -2px rgba(0,0,0,0.2);
+  -moz-box-shadow: 0px 0px 40px -2px rgba(0,0,0,0.2);
+  box-shadow: 0px 0px 40px -2px rgba(0,0,0,0.2);
+  font-size:16px;
+}
+
+.container .card-calculator2 .last-value-container{
+  margin: auto;
+  width: 50%;
+  padding: 0;
+  height: 80px;
+}
+
+.container .card-calculator2 h4,h5{
+  text-align: center;
+}
+
+
+input#answer{
+  float:right;
+  width: 100%;
+}
+
+.container .card-calculator .header{
+  padding:30px 30px;
+  background:#355691;
+  height:70px;
+  border-bottom:1px solid  #A7A8AA;
+  position: relative;
+}
+.container .card-calculator .header .temporal-container{
+  color: #A7A8AA;
+}
+
+.container .card-calculator .header .answer-cotainer{
+  height: 40px;
+}
+
+.container .card-calculator .header .answer-cotainer input{
+  font-size: 40px;
+}
+
+.container .card-calculator .body{
+  width: 100%;
+}
+
+.container .card-calculator .body .row{
+  font-size:0;
+}
+
+.container .card-calculator .header .row{
+  font-size:0;
+}
+
+.container .card-calculator .body button, input{
+  width:25%;
+  height:70px;
+  transition: background 0.2s ease-in;
+  background:#355691;
+  font-size:18px;
+  color:#A7A8AA;
+  text-align: center;
+  outline: 0;
+  border:0;
+  padding:0;
+}
+
+.container .card-calculator .body button:hover, input:hover{
+  transition: background 0.2s ease-in;
+  background:#22375D;
+  cursor: pointer;
+}
+
+
+.container .card-calculator .body .row button:last-of-type:hover {
+  background: rgba(254, 167, 51, 0.1);
+}
+
+@media (max-width: 600px) {
+  body{
+    margin: 0;
+  }
+  .container {
+      padding:0;
+  }
+
+  .container .card-calculator{
+      width:100%;
+      max-width:100%;
+      height:100%;
+      border-radius:0px;
+      box-shadow:none !important;
+  }
+
+  .container .card-calculator2{
+    width:100%;
+    max-width:100%;
+    margin-top: 0;
+    height:100%;
+    border-radius:0px;
+    box-shadow:none !important;
+}
+}
+
+
+

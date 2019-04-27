@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+
+    <link rel="stylesheet" href="./styles.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+        integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="card-calculator">
+            <span id="result"></span>
+
+            <form name="calculator">
+
+                <div class="header">
+                    <div class="temporal-container">
+                        <span type="text" id="temporal" name="temporal">0</span>
+                    </div>
+                    <div class="answer-cotainer">
+                        <input type="text" id="answer" disabled name="answer"></input>
+                    </div>
+                </div>
+
+
+                <div class="body">
+
+                    <div class="row">
+                        <input type="button" value=" 1" onclick="calculator.answer.value += '1'" />
+                        <input type="button" value=" 2" onclick="calculator.answer.value += '2'" />
+                        <input type="button" value=" 3" onclick="calculator.answer.value += '3'" />
+                        <button id="suma" type="button" value="suma" onclick="doFunction();"><i
+                                class="fa fa-plus"></i></button>
+                    </div>
+
+                    <div class="row">
+                        <input type="button" value=" 4" onclick="calculator.answer.value += '4'" />
+                        <input type="button" value=" 5" onclick="calculator.answer.value += '5'" />
+                        <input type="button" value=" 6" onclick="calculator.answer.value += '6'" />
+                        <button id="resta" type="button" value="resta" onclick="doFunction();"><i
+                                class="fas fa-minus"></i></button>
+                    </div>
+
+                    <div class="row">
+                        <input type="button" value=" 7" onclick="calculator.answer.value += '7'" />
+                        <input type="button" value=" 8" onclick="calculator.answer.value += '8'" />
+                        <input type="button" value=" 9" onclick="calculator.answer.value += '9'" />
+                        <button id="mul" type="button" value="mul" onclick="doFunction();"><i
+                                class="fas fa-times"></i></button>
+                    </div>
+
+                    <div class="row">
+                        <input type="button" value=" Ac" id="del" onclick="doFunction();" />
+                        <input type="button" value=" 0" onclick="calculator.answer.value += '0'" />
+                        <input type="button" value=" =" id="calculate" onclick="doFunction();" />
+                        <button id="div" type="button" value="div" onclick="doFunction();"><i
+                                class="fas fa-divide"></i></button>
+                    </div>
+
+                </div>
+
+            </form>
+        </div>
+
+        <div class="card-calculator2">
+            <div class="last-value-container">
+                <h4>Last Value</h4>
+                <h5 id="lastValueCalculated"></h5>
+            </div>
+        </div>
+        <button onclick="navegate();">Back to Menu</button>
+    </div>
+
+    <script>
+        var last = localStorage.getItem('lastCalculatedValue');
+        document.getElementById("lastValueCalculated").innerHTML = last;
+    </script>
+
+    <script>
+        var firstNumber = 0;
+        var secondNumber = 0;
+        var result = 0;
+        var num = 2;
+        var arrayNumbers = [];
+        var arrayOperation = [];
+        var numberTemporal = "";
+
+        function navegate(valueNavegate) {
+
+            window.location.replace('http://127.0.0.1:5500/index.html');
+
+        }
+
+        // CALCULAR RESULTADO
+        document.getElementById("calculate").onclick = function () {
+            // Se evalúa si hay un numero en answer
+            if (document.getElementById("answer").value !== "") {
+                var numberTemp = document.getElementById("answer").value;
+                console.log(numberTemp)
+                var valueSaved = document.getElementById("temporal").value;
+                numberTemporal += document.getElementById("temporal").innerHTML = numberTemp;
+                document.getElementById("temporal").innerHTML = numberTemporal;
+                document.getElementById("answer").value = "";
+            }
+            console.log(numberTemporal);
+            arrayNumbers = numberTemporal.match(/\d+/g);
+            arrayOperation = numberTemporal.match(/[+-/x]+/g);
+            console.log(arrayNumbers);
+            console.log(arrayOperation);
+
+            var resultadoFinal = 0;
+            var operation = "";
+            for (i = 0; i < arrayNumbers.length; i++) {
+
+                if (i == 0) {
+                    switch (arrayOperation[i]) {
+                        case "+":
+                            resultadoFinal = Number(arrayNumbers[i]) + Number(arrayNumbers[i + 1]);
+                            break;
+                        case "-":
+                            resultadoFinal = Number(arrayNumbers[i]) - Number(arrayNumbers[i + 1]);
+                            break;
+                        case "x":
+                            resultadoFinal = Number(arrayNumbers[i]) * Number(arrayNumbers[i + 1]);
+                            break;
+                        case "/":
+                            resultadoFinal = Number(arrayNumbers[i]) / Number(arrayNumbers[i + 1]);
+                            break;
+                    }
+                    console.log('Resultado final', resultadoFinal);
+
+                } else {
+                    switch (arrayOperation[i]) {
+                        case "+":
+                            resultadoFinal = resultadoFinal + Number(arrayNumbers[i + 1]);
+                            break;
+                        case "-":
+                            resultadoFinal = resultadoFinal - Number(arrayNumbers[i + 1]);
+                            break;
+                        case "x":
+                            resultadoFinal = resultadoFinal * Number(arrayNumbers[i + 1]);
+                            break;
+                        case "/":
+                            resultadoFinal = resultadoFinal / Number(arrayNumbers[i + 1]);
+                            break;
+                    }
+                    document.getElementById("answer").value = resultadoFinal;
+                    localStorage.setItem('lastCalculatedValue', resultadoFinal);
+                    document.getElementById("lastValueCalculated").innerHTML = resultadoFinal;
+                    console.log('Resultado final', resultadoFinal);
+                }
+
+
+
+            }
+
+        };
+
+        // CLEAR
+        document.getElementById("del").onclick = function () {
+            document.getElementById("answer").value = 0;
+            numberTemporal = "";
+            document.getElementById("temporal").innerHTML = "";
+        };
+
+
+        // SUMA
+        document.getElementById("suma").onclick = function () {
+            var numberTemp = document.getElementById("answer").value;
+            console.log(numberTemp)
+            var valueSaved = document.getElementById("temporal").value;
+            numberTemporal += document.getElementById("temporal").innerHTML = numberTemp + "+";
+            document.getElementById("temporal").innerHTML = numberTemporal;
+            document.getElementById("answer").value = "";
+            // window.alert(temporal);
+            /*
+            var arraySum = [];
+            for (i = 0; i < num; i++) {
+                const idname = 'number' + (i + 1);
+                var number = document.getElementById(idname).value;
+                arraySum.push(number);
+            }
+            console.log(arraySum);
+            var sum = 0;
+            for (i = 0; i < arraySum.length; i++) {
+                sum = Number(arraySum[i]) + Number(sum);
+            }
+            document.getElementById("result").innerHTML = sum;
+            */
+        };
+
+        // RESTA
+        document.getElementById("resta").onclick = function () {
+            var numberTemp = document.getElementById("answer").value;
+            console.log(numberTemp)
+            var valueSaved = document.getElementById("temporal").value;
+            numberTemporal += document.getElementById("temporal").innerHTML = numberTemp + "-";
+            document.getElementById("temporal").innerHTML = numberTemporal;
+            document.getElementById("answer").value = "";
+        };
+
+        // MULTIPLICACIÓN
+        document.getElementById("mul").onclick = function () {
+            var numberTemp = document.getElementById("answer").value;
+            console.log(numberTemp)
+            var valueSaved = document.getElementById("temporal").value;
+            numberTemporal += document.getElementById("temporal").innerHTML = numberTemp + "x";
+            document.getElementById("temporal").innerHTML = numberTemporal;
+            document.getElementById("answer").value = "";
+        };
+
+        // DIVISIÓN 
+        document.getElementById("div").onclick = function () {
+            var numberTemp = document.getElementById("answer").value;
+            console.log(numberTemp)
+            var valueSaved = document.getElementById("temporal").value;
+            numberTemporal += document.getElementById("temporal").innerHTML = numberTemp + "/";
+            document.getElementById("temporal").innerHTML = numberTemporal;
+            document.getElementById("answer").value = "";
+        };
+
+
+    </script>
+
+
+
+</body>
+
+
+</html>

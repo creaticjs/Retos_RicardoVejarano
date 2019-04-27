@@ -1,0 +1,23 @@
+#user-data{
+    padding-right: 3em;
+ }
+/*
+.container{
+    margin-left: 10em !important;
+} */
+
+.table-header{
+    font-weight: bold;
+}
+
+.card{
+    padding: 1em;
+}
+
+img {
+    height: 200px;
+}
+
+p {
+    color: black;
+}

@@ -1,0 +1,16 @@
+.tabs .tab a{
+    color:#000 !important;
+} 
+
+.tabs .indicator {
+    background-color:#000 !important;
+}
+
+form p {
+    text-align: center !important;
+}
+
+.tabs .tab {
+    width: 10% !important;
+    min-width: 20px !important;
+}

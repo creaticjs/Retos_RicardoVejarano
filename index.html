@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Retos Bootcamp</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<body>
+
+    <nav style="margin-bottom:20px;" class="navbar navbar-light bg-light">
+        <a class="navbar-brand" href="#">Retos Bootcamp 2019</a>
+    </nav>
+    <div class="container">
+        <div class="row">
+            <div class="col-4">
+                <div class="card text-white bg-primary mb-3" style="max-width: 18rem;">
+                    <div class="card-header">Reto 1</div>
+                    <div class="card-body">
+                        <h5 class="card-title">Calculadora con Javascript</h5>
+                        <button onclick="navegate(1);">Ir</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="card text-white bg-secondary mb-3" style="max-width: 18rem;">
+                    <div class="card-header">Reto 2</div>
+                    <div class="card-body">
+                        <h5 class="card-title">Prier PDF problemas de Javascript</h5>
+                        <button onclick="navegate(2);">Ir</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-4">
+                <div class="card text-white bg-success mb-3" style="max-width: 18rem;">
+                    <div class="card-header">Reto 3</div>
+                    <div class="card-body">
+                        <h5 class="card-title">Segundo PDF problemas de Javascript</h5>
+                        <button onclick="navegate(3);">Reto 3</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-4">
+                <div class="card text-white bg-danger mb-3" style="max-width: 18rem;">
+                    <div class="card-header">Reto 4</div>
+                    <div class="card-body">
+                        <h5 class="card-title">Consumir 2 API</h5>
+                        <button onclick="navegate(4);">Reto 4</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-4">
+
+                <div class="card text-white bg-warning mb-3" style="max-width: 18rem;">
+                    <div class="card-header">Reto 5</div>
+                    <div class="card-body">
+                        <h5 class="card-title">Factura electrónica con Vue.js</h5>
+                        <button onclick="navegate(5);">Reto 5</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+
+
+        <div class="row">
+            <div class="col">
+
+            </div>
+            <div class="col">
+
+            </div>
+            <div class="w-100"></div>
+            <div class="col">
+
+            </div>
+            <div class="col">
+
+            </div>
+
+        </div>
+    </div>
+
+
+    <!--BOOTSTRAP JS-->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+
+</body>
+<script>
+    function navegate(valueNavegate) {
+        console.log(valueNavegate);
+        switch (valueNavegate) {
+            case 1: window.location.replace('http://127.0.0.1:5500/calculadora_javascript/index.html');
+                break;
+            case 2: window.location.replace('http://127.0.0.1:5500/reto_2/reto_2_1/index.html')
+                break;
+            case 3: window.location.replace('http://127.0.0.1:5500/reto_3/reto_3_1/index.html')
+                break;
+            case 4: window.location.replace('http://127.0.0.1:5500/reto_4/challenge4.html')
+                break;
+            case 5: window.location.replace('http://127.0.0.1:5500/reto_5/index.html')
+                break;
+        }
+    }
+</script>
+
+</html>

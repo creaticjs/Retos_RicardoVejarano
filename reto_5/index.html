@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="style.css">
+    <title>Reto 5 | Bootcamp React 2019</title>
+</head>
+
+<body>
+    <div id="app">
+        <!--NavBar-->
+        <nav>
+            <div class=" blue-grey darken-4 nav-wrapper">
+                <a href="#"  onclick="navegateBack();"  class="brand-logo blue-grey darken-4 center">Tienda Online de Instrumentos Musicales</a>
+            </div>
+        </nav>
+
+        <div class="container">
+            <div class="row">
+
+                <div class="col s12 m12 l12">
+                    <div class="center">
+                        <div class="row">
+                            <div class="col s12 m12 l12">
+                                <div class="card">
+                                    <div class="card-content white-text">
+                                        <h4 class="grey-text text-darken-4">Información del comprador</h4>
+                                        <div class="row">
+                                            <div class="input-field col s12">
+                                                <input id="nombreUsuario" type="text" class="validate"
+                                                    v-model="nombreUsuario">
+                                                <label for="nombreUsuario">Nombre Comprador</label>
+                                            </div>
+                                            <div class="input-field col s6">
+                                                <input id="cedulaUsuario" name="cedulaUsuario" type="number"
+                                                    v-model="cedulaUsuario" class="validate">
+                                                <label for="cedulaUsuario">Cédula</label>
+                                            </div>
+                                            <div class="input-field col s6">
+                                                <input id="celularUsuario" name="celularUsuario" type="number"
+                                                    v-model="celularUsuario" class="validate">
+                                                <label for="celularUsuario">Celular</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col s12 m12 l12">
+                                <div class="card">
+                                    <div class="card-content white-text">
+                                        <h4 class="grey-text text-darken-4">Seleccionar producto</h4>
+                                        <div class="row">
+
+                                            <div class="col s12 m4 l4">
+                                                <div class="card">
+                                                    <div class="card-image">
+                                                        <img
+                                                            src="https://cdn.shopify.com/s/files/1/2235/9983/products/GA0693_-_GUITARRA_CLASICA_-_CORT_-1_copia_1024x1024@2x.jpg?v=1502203441">
+
+                                                        <a class="btn-floating halfway-fab waves-effect waves-light red"
+                                                            @click="addGuitar({precio:'920000', nombre:'Guitarra Acustica Yamaha'})"><i
+                                                                class="material-icons">add</i></a>
+                                                    </div>
+                                                    <div class="card-content">
+                                                        <p><b>Precio: </b>920.000</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col s12 m4 l4">
+                                                <div class="card">
+                                                    <div class="card-image">
+                                                        <img
+                                                            src="https://ripleycl.imgix.net/http%3A%2F%2Fs3.amazonaws.com%2Fimagenes-sellers-mercado-ripley%2F2018%2F11%2F06160243%2FEXTREME-BLACK.jpg?w=750&h=555&ch=Width&auto=format&cs=strip&bg=FFFFFF&q=60&trimcolor=FFFFFF&trim=color&fit=fillmax&ixlib=js-1.1.0&s=d883b38aa1a386652e42cf0b095dfa48">
+                                                        <a class="btn-floating halfway-fab waves-effect waves-light red"
+                                                            @click="addGuitar({precio:'750000', nombre:'Guitarra Storm'})"><i
+                                                                class="material-icons">add</i></a>
+                                                    </div>
+                                                    <div class="card-content">
+                                                        <p><b>Precio: </b>750.000</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col s12 m4 l4">
+                                                <div class="card">
+                                                    <div class="card-image">
+                                                        <img
+                                                            src="https://d1aeri3ty3izns.cloudfront.net/media/17/176312/1200/preview.jpg">
+                                                        <a class="btn-floating halfway-fab waves-effect waves-light red"
+                                                            @click="addGuitar({precio:'1500000', nombre: 'Guitarra Epiphone'})"><i
+                                                                class="material-icons">add</i></a>
+                                                    </div>
+                                                    <div class="card-content">
+                                                        <p><b>Precio: </b>1'500.000</p>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+
+
+                                            <div class="col s12 m4 l4">
+                                                <div class="card">
+                                                    <div class="card-image">
+                                                        <img
+                                                            src="https://www.thomann.de/pics/bdb/384491/12636581_800.jpg">
+
+                                                        <a class="btn-floating halfway-fab waves-effect waves-light red"
+                                                            @click="addGuitar({precio:'5200000', nombre:'Piano Yamaha'})"><i
+                                                                class="material-icons">add</i></a>
+                                                    </div>
+                                                    <div class="card-content">
+                                                        <p><b>Precio: </b>5'200.000</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col s12 m4 l4">
+                                                <div class="card">
+                                                    <div class="card-image">
+                                                        <img
+                                                            src="https://http2.mlstatic.com/pianos-de-cola-desde-15000000-nuevos-usados-garantia-D_NQ_NP_648346-MCO25658940270_062017-F.jpg">
+                                                        <a class="btn-floating halfway-fab waves-effect waves-light red"
+                                                            @click="addGuitar({precio:'6400000', nombre:'Piano de cola'})"><i
+                                                                class="material-icons">add</i></a>
+                                                    </div>
+                                                    <div class="card-content">
+                                                        <p><b>Precio: </b>6'400.000</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col s12 m4 l4">
+                                                <div class="card">
+                                                    <div class="card-image">
+                                                        <img
+                                                            src="https://www.guitarrasybaterias.com/media/catalog/product/cache/1/image/650x/040ec09b1e35df139433887a97daa66f/d/g/dgx-650.jpg">
+                                                        <a class="btn-floating halfway-fab waves-effect waves-light red"
+                                                            @click="addGuitar({precio:'1600000', nombre: 'Sintetizador'})"><i
+                                                                class="material-icons">add</i></a>
+                                                    </div>
+                                                    <div class="card-content">
+                                                        <p><b>Precio: </b>1'600.000</p>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+
+
+                                            <div class="col s12 m4 l4">
+                                                <div class="card">
+                                                    <div class="card-image">
+                                                        <img
+                                                            src="https://st-listas.20minutos.es/images/2014-12/391237/4605092_640px.jpg?1419614177">
+
+                                                        <a class="btn-floating halfway-fab waves-effect waves-light red"
+                                                            @click="addGuitar({precio:'750000', nombre:'Bajo Fender'})"><i
+                                                                class="material-icons">add</i></a>
+                                                    </div>
+                                                    <div class="card-content">
+                                                        <p><b>Precio: </b>750.000</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col s12 m4 l4">
+                                                <div class="card">
+                                                    <div class="card-image">
+                                                        <img
+                                                            src="https://images-na.ssl-images-amazon.com/images/I/81YhtimACrL._SX466_.jpg">
+                                                        <a class="btn-floating halfway-fab waves-effect waves-light red"
+                                                            @click="addGuitar({precio:'850000', nombre:'Bajo Telecaster'})"><i
+                                                                class="material-icons">add</i></a>
+                                                    </div>
+                                                    <div class="card-content">
+                                                        <p><b>Precio: </b>850.000</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col s12 m4 l4">
+                                                <div class="card">
+                                                    <div class="card-image">
+                                                        <img
+                                                            src="https://d1aeri3ty3izns.cloudfront.net/media/17/176312/1200/preview.jpg">
+                                                        <a class="btn-floating halfway-fab waves-effect waves-light red"
+                                                            @click="addGuitar({precio:'2500000', nombre: 'Bajo Jhackson'})"><i
+                                                                class="material-icons">add</i></a>
+                                                    </div>
+                                                    <div class="card-content">
+                                                        <p><b>Precio: </b>2'500.000</p>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+
+                <div class="col s12 m12 l12">
+                    <div class="row">
+                        <div class="col s12 m12 l12">
+                            <div class="card">
+                                <h5 class="center">Visualización factura</h5>
+                                <table class="striped">
+                                    <tbody>
+                                        <tr>
+                                            <td>CLIENTE:</td>
+                                            <td>{{nombreUsuario}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>CEDULA:</td>
+                                            <td>{{cedulaUsuario}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>CELULAR::</td>
+                                            <td>{{celularUsuario}}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <div class="row section table-header">
+                                    <div class="col s3">NOMBRE</div>
+                                    <div class="col s3">PRECIO</div>
+                                    <div class="col s3">CANTIDAD</div>
+                                    <div class="col s3">SUBTOTAL</div>
+                                </div>
+                                <div class="row">
+                                    <guitars v-for="item in guitarras" :nombre="item.nombre" :precio="item.precio"
+                                        :cantidad="item.cantidad" :subtotal="item.subtotal" v-bind:key="item.id">
+
+                                    </guitars>
+
+                                </div>
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>TOTAL SIN IVA</th>
+                                            <th>{{totalGuitarFacture}}</th>
+                                        </tr>
+                                        <tr>
+                                            <th>TOTAL CON IVA</th>
+                                            <th>{{totalGuitarFactureIva}}</th>
+                                        </tr>
+                                    </thead>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+      
+    </div>
+
+    <!--Scripts se realiza el importe de Vue, Materialize y el index.js-->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="./index.js"></script>
+
+</body>
+
+</html>
